@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>大叻旅遊指南</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    :root {
+      --primary-green: #A8D5BA;
+      --light-blue: #D7E9F7;
+      --off-white: #FDFDFD;
+      --grass-green: #7BA56D;
+      --soft-brown: #C7B299;
+      --sky-gray: #B0B8C1;
+    }
+
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      background-color: var(--off-white);
+      color: #333;
+    }
+
+    .hero {
+      background: url('https://tournews.tw/wp-content/uploads/2024/08/%E5%A4%A7%E5%8F%BB%E9%84%89%E6%9D%91%E7%92%B0%E7%B7%9A%E6%91%A9%E6%89%98%E8%BB%8A%E4%B8%80%E6%97%A5%E9%81%8A.webp') no-repeat center center/cover;
+      height: 60vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: var(--off-white);
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+      margin-bottom: 2rem;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      background-color: rgba(120, 160, 130, 0.5);
+      padding: 1rem 2rem;
+      border-radius: 12px;
+    }
+
+    .section-title {
+      font-weight: 700;
+      font-size: 2rem;
+      color: var(--grass-green);
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+    .card-img-top {
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
+      height: 180px;
+      object-fit: cover;
+    }
+    .card-body {
+      background-color: var(--light-blue);
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+    .card-title {
+      color: var(--grass-green);
+      font-weight: 600;
+    }
+    .card-text {
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    footer {
+      background-color: var(--grass-green);
+      color: var(--off-white);
+      padding: 1rem 0;
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+
+    /* 隱藏區塊 */
+    .content-section {
+      display: none;
+    }
+    /* 顯示當前區塊 */
+    .active-section {
+      display: block;
+    }
+
+    /* Navbar 按鈕樣式調整 */
+    .nav-button {
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      background-color: var(--primary-green);
+      border: none;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .nav-button.active {
+      background-color: var(--grass-green);
+    }
+
+    /* 響應式 */
+    @media (max-width: 576px) {
+      .hero h1 {
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+      }
+      .card-img-top {
+        height: 140px;
+      }
+      .nav-button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="container my-3 text-center">
+    <button class="nav-button active" onclick="showSection('home', this)">首頁</button>
+    <button class="nav-button" onclick="showSection('attractions', this)">景點</button>
+    <button class="nav-button" onclick="showSection('food', this)">美食</button>
+    <button class="nav-button" onclick="showSection('stay', this)">住宿</button>
+    <button class="nav-button" onclick="showSection('events', this)">活動</button>
+  </nav>
+
+  <div class="container">
+
+    <section id="home" class="content-section active-section">
+      <div class="hero">
+        <h1>大叻 · 自然與浪漫的完美邂逅</h1>
+      </div>
+    </section>
+
+    <section id="attractions" class="content-section">
+      <h2 class="section-title">熱門景點推薦</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/52/80/97/h-xuan-huong.jpg?w=800&h=500&s=1" alt="春香湖" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">春香湖</h5>
+              <p class="card-text">市中心浪漫湖畔，適合漫步與划船。</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://gandan.me/wp-content/uploads/2018/05/20241006-72fuz.jpg" alt="達坦拉瀑布" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">達坦拉瀑布</h5>
+              <p class="card-text">自然與冒險的完美結合，感受水霧洗禮。</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://2bunny.tw/wp-content/uploads/pixnet/1558359032-304781562.jpg" alt="瘋狂屋" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">瘋狂屋</h5>
+              <p class="card-text">童話風建築藝術，顛覆你的視覺想像。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="food" class="content-section">
+      <h2 class="section-title">必吃大叻美食</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://gandan.me/wp-content/uploads/2018/04/20241006-79svg.jpg" alt="越式火鍋" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">越式火鍋</h5>
+              <p class="card-text">溫暖香辣，最受歡迎的在地料理。</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiYz4_ljNdoiEOuuLZChQ6gpI_dBNr1UO6zg&s" alt="大叻咖啡" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">大叻咖啡</h5>
+              <p class="card-text">濃郁煉乳搭配滴漏咖啡，香氣迷人。</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://gandan.me/wp-content/uploads/2018/06/20241006-d67h9.jpg" alt="草莓" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">草莓</h5>
+              <p class="card-text">當地盛產，風味獨特，甜蜜誘人。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="stay" class="content-section">
+      <h2 class="section-title">住宿推薦</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://pix10.agoda.net/hotelImages/29376985/-1/bbce29f461a82075f8a97af7f4f93cf4.jpg?ca=27&ce=0&s=414x232&ar=16x9" alt="大叻藝術家飯店" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">大叻藝術家飯店</h5>
+              <p class="card-text">獨特設計美學，為旅途增添一抹藝術氣息。</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsQ_96StHDF8x0Ia1lwHmuapXMzsXnEbnHXQ&s" alt="法式風格民宿" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">法式風格民宿</h5>
+              <p class="card-text">溫馨文青風，感受浪漫法式氛圍。</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://images.trvl-media.com/lodging/93000000/92930000/92925200/92925136/667de2ae.jpg?impolicy=fcrop&w=357&h=201&p=1&q=medium" alt="青年旅館" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">青年旅館</h5>
+              <p class="card-text">經濟實惠，氣氛活潑，結交旅友好選擇。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="events" class="content-section">
+      <h2 class="section-title">大叻活動與節慶</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://mediazh.vietnamplus.vn/images/b18a4068d10844fa0a3b8b87a8d901f69a6714adf8c4e01768601dfe8def2dc60fb1a4ae4bb8ef38c6d7870df3b66433e23acb208e2abca8fb54bd1709e23688eb28b5ce34a925609fd2cc8c7e94582241e276017b655c9986dbd0056ab15af0/hoadalat1157199458815719965304111968620765.jpg" alt="大叻花卉節" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">大叻花卉節</h5>
+              <p class="card-text">每兩年一次的花藝盛會，繽紛絢麗。</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://mediazh.vietnamplus.vn/images/c26ade44f2b4b758e72b2d69bb92b7775e2d7fa4de9534aa47302a60de539c1e39a60fc2b30aed5efcc124d7ad0f5f898b7ad0ba49acb27431d9e86df89edc99cb3e8557e10a605661048696f32405aa/nhac_hoi_canh_sat_asean_33.jpg.webp" alt="傳統音樂節" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">傳統音樂節</h5>
+              <p class="card-text">體驗當地文化與音樂的魅力。</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <img src="https://www.davidwin.net/wp-content/uploads/2018/12/2018011113194093.jpg" alt="夜市" class="card-img-top" />
+            <div class="card-body">
+              <h5 class="card-title">夜市</h5>
+              <p class="card-text">熱鬧非凡的夜市體驗，感受大叻夜生活。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer>
+    &copy; 2025 大叻旅遊指南
+  </footer>
+
+  <script>
+    function showSection(sectionId, btn) {
+      // 隱藏全部區塊
+      const sections = document.querySelectorAll('.content-section');
+      sections.forEach(section => section.classList.remove('active-section'));
+
+      // 顯示被點擊的區塊
+      document.getElementById(sectionId).classList.add('active-section');
+
+      // 更新按鈕樣式
+      const buttons = document.querySelectorAll('.nav-button');
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
+
