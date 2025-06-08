@@ -86,16 +86,14 @@
       font-size: 0.9rem;
     }
 
-    /* 隱藏區塊 */
     .content-section {
       display: none;
     }
-    /* 顯示當前區塊 */
+
     .active-section {
       display: block;
     }
 
-    /* Navbar 按鈕樣式調整 */
     .nav-button {
       margin-right: 0.5rem;
       margin-bottom: 0.5rem;
@@ -111,7 +109,6 @@
       background-color: var(--grass-green);
     }
 
-    /* 響應式 */
     @media (max-width: 576px) {
       .hero h1 {
         font-size: 2rem;
@@ -284,14 +281,12 @@
 
   <script>
     function showSection(sectionId, btn) {
-      // 隱藏全部區塊
+
       const sections = document.querySelectorAll('.content-section');
       sections.forEach(section => section.classList.remove('active-section'));
 
-      // 顯示被點擊的區塊
       document.getElementById(sectionId).classList.add('active-section');
 
-      // 更新按鈕樣式
       const buttons = document.querySelectorAll('.nav-button');
       buttons.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
